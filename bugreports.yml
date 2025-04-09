@@ -92,4 +92,21 @@
     - URL: https://dummyjson.com/http/500/failed
     - Статус: 500 Internal Server Error
 
+- summary: |
+    Кнопка закрытия ("X") в модальном окне не работает
+  environment: |
+    CCleaner Browser 133.0.29113.143 (a 64 bit)
+    ОС Windows 11
+    Версия приложения: v1
+  steps-to-reproduce: |
+    1. Перейти на сайт
+    2. Добавить товары в корзину и оформить заказ
+    3. Дождаться появления модального окна "Order placed successfully"
+    4. Нажать на крестик ("X") в правом верхнем углу
+  expected-result: |
+    Модальное окно закрывается при нажатии на "X"
+  actual-result: |
+    Кнопка "X" не работает, модальное окно можно закрыть только через кнопку "Close"
+
+
 
