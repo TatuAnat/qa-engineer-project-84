@@ -55,3 +55,41 @@
     Должны отображаться все товары, независимо от состояния фильтра
   actual-result: |
     Товары не отображаются, пока не выбран фильтр "In stock"
+
+- summary: |
+    Ошибка загрузки ресурсов: net::ERR_NAME_NOT_RESOLVED для CSS и JS файлов
+  environment: |
+    CCleaner Browser 133.0.29113.143 (a 64 bit)
+    ОС Windows 11
+    Версия приложения: v1
+  steps-to-reproduce: |
+    1. Открыть сайт в браузере
+    2. Открыть инструменты разработчика (F12) и перейти на вкладку "Console"
+    3. Обновить страницу
+  expected-result: |
+    Все статические ресурсы (CSS и JS) загружаются без ошибок
+  actual-result: |
+    Ошибка загрузки ресурсов:
+    - Failed to load resource: net::ERR_NAME_NOT_RESOLVED
+    - site/static/css/random.css:1
+    - site/static/js/author.js:1
+
+- summary: |
+    Ошибка 500 при попытке оформить заказ (checkout)
+  environment: |
+    CCleaner Browser 133.0.29113.143 (a 64 bit)
+    ОС Windows 11
+    Версия приложения: v1
+  steps-to-reproduce: |
+    1. Перейти на сайт и добавить товар в корзину
+    2. Открыть вкладку "Network" в инструментах разработчика
+    3. Перейти в корзину
+    4. Нажать на кнопку "Checkout"
+   expected-result: |
+    Запрос проходит успешно, происходит переход к следующему шагу оформления
+  actual-result: |
+    Запрос завершился ошибкой:
+    - URL: https://dummyjson.com/http/500/failed
+    - Статус: 500 Internal Server Error
+
+
